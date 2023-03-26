@@ -1,6 +1,17 @@
 import { ApolloServer } from 'apollo-server';
 import { typeDefs, resolvers } from './graphql/schema';
-import fetch from 'node-fetch';
+
+import { context } from './graphql/context';
+
+const server = new ApolloServer({
+  typeDefs,
+  resolvers,
+  context,
+});
+
+server.listen(4003).then(({ url }) => {
+  console.log(`Server is running on ${url}`);
+});
 
 // typeDefs: gql`
 //   type Query {
@@ -64,17 +75,3 @@ import fetch from 'node-fetch';
 //       },
 //     },
 //   },
-
-const server = new ApolloServer({
-  typeDefs,
-  resolvers,
-  context: () => {
-    return {
-      fetch,
-    };
-  },
-});
-
-server.listen(4003).then(({ url }) => {
-  console.log(`Server is running on ${url}`);
-});
