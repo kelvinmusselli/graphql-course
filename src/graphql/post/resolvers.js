@@ -22,3 +22,12 @@ export const postResolvers = {
     },
   },
 };
+
+// adicionando alias no query
+// query Post {
+//   item: post(id: "860") {
+//     postId :id
+//     title
+//     timeStamp
+//   }
+// }
