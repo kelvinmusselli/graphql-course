@@ -14,4 +14,11 @@ export const postResolvers = {
     post,
     posts,
   },
+  Post: {
+    timeStamp: (parent) => {
+      // vem o callback de cada request
+      console.log(parent);
+      return 'hello world';
+    },
+  },
 };
