@@ -1,5 +1,6 @@
 import { ApolloServer } from 'apollo-server';
 import { typeDefs, resolvers } from './graphql/schema';
+import fetch from 'node-fetch';
 
 // typeDefs: gql`
 //   type Query {
@@ -67,6 +68,11 @@ import { typeDefs, resolvers } from './graphql/schema';
 const server = new ApolloServer({
   typeDefs,
   resolvers,
+  context: () => {
+    return {
+      fetch,
+    };
+  },
 });
 
 server.listen(4003).then(({ url }) => {
