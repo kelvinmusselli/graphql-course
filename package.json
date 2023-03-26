@@ -5,7 +5,8 @@
   "main": "src/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon -r sucrase/register src/index.js"
+    "dev": "nodemon -r sucrase/register src/index.js",
+    "db": "npx json-server --watch db.json"
   },
   "keywords": [],
   "author": "",
@@ -18,6 +19,7 @@
     "eslint": "^8.36.0",
     "eslint-config-prettier": "^8.8.0",
     "eslint-plugin-prettier": "^4.2.1",
+    "json-server": "^0.17.3",
     "nodemon": "^2.0.22",
     "prettier": "^2.8.7",
     "sucrase": "^3.30.0"
